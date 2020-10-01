@@ -4,7 +4,7 @@ const userRoute = require('./userRouter');
 
 const errorHandler = require('../middleware/errorHandler');
 
-router.use('/users', userRoute);
+router.use('/user', userRoute);
 router.use(auth);
 
 router.use(errorHandler);
