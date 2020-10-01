@@ -1,0 +1,19 @@
+Register : Username, email, password;
+Login : Username, password;
+Townhall : Player control resources;
+    500 health point,
+    20-50 energy (2 energy/30sec);
+    can build the buildings;
+Buildings :
+Wooden Field (-3 energy): 5 wood/30sec max 50;
+Farm (-8 energy and 2 wood) : 2 meat/30sec max 20;
+Market (-12 energy and 4 wood): 2 gold/30sec max 20;
+Barrack (-10 energy and 3 wood): train soldier(5 meat and 5 gold) attack power 30-45 (free 2 soldier for first time);
+Features :
+Invading (10 energy): cooldown 4 minutes, success: total attack power > defender;
+if success : defender townhall health point - (different attack power) and attacker + 1/2 defender coin and meat;
+if failed : attacker soldier -1/3 random select;
+Additional Features: 
+Player can see their resources but cant to another Player;
+Playar can see their combat log
+Player can see the cooldown of invade
