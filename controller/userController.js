@@ -1,11 +1,11 @@
-const User = require('../model/userLog');
-const bcrypt = require('bcrypt');
+const User = require('../model/User');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 class userController {
     static register(req, res, next){
-        const {username, email, password} = req.body;
-        const user = new User({username, email, password});
+        const {username, email, password, firstName, lastName} = req.body;
+        const user = new User({username, email, password, firstName, lastName});
         user
             .save()
             .then((user) => {
@@ -15,6 +15,8 @@ class userController {
                         _id: user._id,
                         username: user.username,
                         email: user.email,
+                        firstName: user.firstName,
+                        lastName: user.lastName,
                     }
                 });
             })
@@ -29,7 +31,8 @@ class userController {
                     const access_token = jwt.sign({_id: user.id}, 'ASSIGNMENT');
                     res.status(200).json({
                         success: true,
-                        access_token
+                        access_token,
+                        user
                     });
                 } else throw{name: 'LOGIN_FAILED'};
             })
